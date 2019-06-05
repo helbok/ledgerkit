@@ -1,0 +1,24 @@
+using LedgerKit;
+using Xunit;
+
+namespace LedgerKit.Tests
+{
+    public class MoneyTests
+    {
+        [Fact]
+        public void Money_Rounds_To_Minor_Unit()
+        {
+            var m = new Money(1.005m, Currency.Usd);
+            Assert.Equal(1.01m, m.Amount);
+        }
+
+        [Fact]
+        public void Money_Addition_Requires_Same_Currency()
+        {
+            var usd = new Money(1m, Currency.Usd);
+            var eur = new Money(1m, Currency.Eur);
+            Assert.Throws<System.InvalidOperationException>(() => _ = usd + eur);
+        }
+        // MARKER: money-tests
+    }
+}
