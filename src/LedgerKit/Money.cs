@@ -21,6 +21,8 @@ namespace LedgerKit
 
         public static Money Zero(Currency currency) => new Money(0m, currency);
 
+        public Money Abs() => new Money(Math.Abs(Amount), Currency);
+
         public static Money operator +(Money a, Money b) => Combine(a, b, a.Amount + b.Amount);
 
         public static Money operator -(Money a, Money b) => Combine(a, b, a.Amount - b.Amount);
