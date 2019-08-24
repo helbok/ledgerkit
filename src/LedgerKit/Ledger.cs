@@ -43,5 +43,12 @@ namespace LedgerKit
             }
             return map;
         }
+
+        public IReadOnlyDictionary<Account, decimal> GetBalancesByType(AccountType type)
+        {
+            return GetBalances()
+                .Where(kv => kv.Key.Type == type)
+                .ToDictionary(kv => kv.Key, kv => kv.Value);
+        }
     }
 }
