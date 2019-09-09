@@ -16,6 +16,12 @@ Early development. The API is unstable and may change without notice.
 
 MIT — see [LICENSE](LICENSE).
 
+## Storage backends
+
+LedgerKit ships with an in-memory store and a JSON-file store behind a
+common `ILedgerStore` contract, so applications can swap persistence without
+changing ledger code.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
