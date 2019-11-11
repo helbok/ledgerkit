@@ -23,6 +23,7 @@ namespace LedgerKit
             var ledger = new Ledger(_journal);
             foreach (var kv in ledger.GetBalances())
                 sb.AppendLine($"{kv.Key.Name} | {kv.Value:0.00}");
+            sb.AppendLine("Total | " + ledger.GetBalances().Values.Sum().ToString("0.00"));
             return sb.ToString();
         }
     }
