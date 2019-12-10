@@ -22,6 +22,11 @@ LedgerKit ships with an in-memory store and a JSON-file store behind a
 common `ILedgerStore` contract, so applications can swap persistence without
 changing ledger code.
 
+## Reports
+
+Use `ReportGenerator` to produce a text trial balance, or build on
+`TrialBalance` for your own formatting.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
