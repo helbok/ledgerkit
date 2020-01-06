@@ -20,4 +20,11 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Trial balance report generator.
 - `Money.Abs` and typed balance lookup helpers.
 
+## [0.3.0] - 2019-12-16
+
+### Added
+
+- `TrialBalance` snapshot type with debit/credit positions.
+- Total row in trial balance report.
+
 <!-- releases -->
