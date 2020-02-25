@@ -1,0 +1,25 @@
+using LedgerKit;
+using System;
+using Xunit;
+
+namespace LedgerKit.Tests
+{
+    public class PeriodTests
+    {
+        [Fact]
+        public void Period_Rejects_Inverted_Dates()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                new Period(new DateTime(2021, 12, 31), new DateTime(2021, 1, 1)));
+        }
+
+        [Fact]
+        public void Period_Contains_Is_End_Exclusive()
+        {
+            var p = new Period(new DateTime(2021, 1, 1), new DateTime(2021, 2, 1));
+            Assert.True(p.Contains(new DateTime(2021, 1, 31)));
+            Assert.False(p.Contains(new DateTime(2021, 2, 1)));
+        }
+        // MARKER: period-tests
+    }
+}
