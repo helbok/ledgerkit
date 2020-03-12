@@ -22,9 +22,10 @@ namespace LedgerKit
             sb.AppendLine("Account | Balance");
             sb.AppendLine("--------|--------");
             var ledger = new Ledger(_journal);
-            foreach (var kv in ledger.GetBalances())
+            var balances = ledger.GetBalances();
+            foreach (var kv in balances)
                 sb.AppendLine($"{kv.Key.Name} | {kv.Value:0.00}");
-            sb.AppendLine("Total | " + ledger.GetBalances().Values.Sum().ToString("0.00"));
+            sb.AppendLine("Total | " + balances.Values.Sum().ToString("0.00"));
             return sb.ToString();
         }
     }
