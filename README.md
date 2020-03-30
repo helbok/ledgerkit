@@ -27,6 +27,12 @@ changing ledger code.
 Use `ReportGenerator` to produce a text trial balance, or build on
 `TrialBalance` for your own formatting.
 
+## Financial statements
+
+`IncomeStatement` and `BalanceSheet` compute profit-and-loss and
+statement-of-position figures directly from a `Ledger`, following the
+accounting equation: assets = liabilities + equity.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
