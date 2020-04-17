@@ -27,4 +27,12 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `TrialBalance` snapshot type with debit/credit positions.
 - Total row in trial balance report.
 
+## [0.4.0] - 2020-04-13
+
+### Added
+
+- SQLite-backed store.
+- `IncomeStatement` and `BalanceSheet` reports.
+- `Period` type for fiscal periods.
+
 <!-- releases -->
