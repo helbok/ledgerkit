@@ -22,5 +22,14 @@ namespace LedgerKit
             new ReadOnlyCollection<Transaction>(_transactions);
 
         public int Count => _transactions.Count;
+
+        public IReadOnlyList<Transaction> GetRange(Period period)
+        {
+            var result = new List<Transaction>();
+            foreach (var tx in _transactions)
+                if (period.Contains(tx.Posted))
+                    result.Add(tx);
+            return result;
+        }
     }
 }
