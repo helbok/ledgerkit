@@ -44,6 +44,23 @@ namespace LedgerKit
             return map;
         }
 
+        public IReadOnlyList<Transaction> GetTransactionsFor(Account account)
+        {
+            var result = new List<Transaction>();
+            foreach (var tx in _journal.Transactions)
+            {
+                foreach (var e in tx.Entries)
+                {
+                    if (e.Account.Equals(account))
+                    {
+                        result.Add(tx);
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+
         public IReadOnlyDictionary<Account, decimal> GetBalancesByType(AccountType type)
         {
             return GetBalances()
