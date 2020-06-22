@@ -33,6 +33,11 @@ Use `ReportGenerator` to produce a text trial balance, or build on
 statement-of-position figures directly from a `Ledger`, following the
 accounting equation: assets = liabilities + equity.
 
+## Multicurrency
+
+`ExchangeRates` stores per-pair rates with inverse lookup; `Money` never
+implicitly mixes currencies.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
