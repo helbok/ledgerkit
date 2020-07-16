@@ -35,4 +35,12 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `IncomeStatement` and `BalanceSheet` reports.
 - `Period` type for fiscal periods.
 
+## [0.5.0] - 2020-06-29
+
+### Added
+
+- Currency exchange rates with inverse lookup.
+- Cash flow statement builder.
+- Journal period range and per-account transaction queries.
+
 <!-- releases -->
