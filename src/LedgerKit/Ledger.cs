@@ -61,6 +61,8 @@ namespace LedgerKit
             return result;
         }
 
+        public LedgerSnapshot Capture() => new LedgerSnapshot(GetBalances());
+
         public IReadOnlyDictionary<Account, decimal> GetBalancesByType(AccountType type)
         {
             return GetBalances()
