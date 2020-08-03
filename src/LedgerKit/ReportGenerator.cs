@@ -28,5 +28,21 @@ namespace LedgerKit
             sb.AppendLine("Total | " + balances.Values.Sum().ToString("0.00"));
             return sb.ToString();
         }
+
+        public string IncomeStatement()
+        {
+            var stmt = new IncomeStatement(new Ledger(_journal));
+            return $"Revenue: {stmt.TotalRevenue:0.00}\n" +
+                   $"Expenses: {stmt.TotalExpenses:0.00}\n" +
+                   $"Net income: {stmt.NetIncome:0.00}\n";
+        }
+
+        public string BalanceSheet()
+        {
+            var sheet = new BalanceSheet(new Ledger(_journal));
+            return $"Assets: {sheet.TotalAssets:0.00}\n" +
+                   $"Liabilities: {sheet.TotalLiabilities:0.00}\n" +
+                   $"Equity: {sheet.TotalEquity:0.00}\n";
+        }
     }
 }
