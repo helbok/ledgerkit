@@ -22,6 +22,22 @@ namespace LedgerKit.Tests
             Assert.Contains("Cash", report);
             Assert.Contains("Income", report);
         }
+
+        [Fact]
+        public void IncomeStatement_Report_Contains_Net_Income()
+        {
+            var cash = new Account("Cash", AccountType.Asset);
+            var revenue = new Account("Revenue", AccountType.Revenue);
+            var journal = new Journal();
+            journal.Add(new Transaction(DateTime.UtcNow, "sale",
+                new[]
+                {
+                    new Entry(cash, new Money(75m, Currency.Usd)),
+                    new Entry(revenue, new Money(-75m, Currency.Usd)),
+                }));
+            var report = new ReportGenerator(journal).IncomeStatement();
+            Assert.Contains("Net income: 75.00", report);
+        }
         // MARKER: report-tests
     }
 }
