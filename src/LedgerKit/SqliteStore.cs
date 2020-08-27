@@ -46,6 +46,9 @@ namespace LedgerKit
         public IReadOnlyList<Transaction> GetTransactions()
         {
             var list = new List<Transaction>();
+            var accountsByName = new Dictionary<string, Account>();
+            foreach (var a in GetAccounts())
+                accountsByName[a.Name] = a;
             using var cmd = _connection.CreateCommand();
             cmd.CommandText = @"
                 SELECT t.id, t.posted, t.description,
@@ -70,7 +73,7 @@ namespace LedgerKit
                     description = reader.GetString(2);
                     entries = new List<Entry>();
                 }
-                var account = new Account(reader.GetString(3), AccountType.Asset);
+                var account = accountsByName[reader.GetString(3)];
                 entries.Add(new Entry(account, new Money(reader.GetDecimal(4), new Currency(reader.GetString(5)))));
             }
             if (currentId != null)
