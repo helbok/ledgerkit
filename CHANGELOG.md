@@ -43,4 +43,15 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Cash flow statement builder.
 - Journal period range and per-account transaction queries.
 
+## [0.6.0] - 2020-09-09
+
+### Added
+
+- Immutable `LedgerSnapshot` capture.
+- Income statement and balance sheet reports via `ReportGenerator`.
+
+### Fixed
+
+- SQLite store now preserves account types on read.
+
 <!-- releases -->

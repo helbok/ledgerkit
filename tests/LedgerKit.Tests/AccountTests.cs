@@ -18,6 +18,13 @@ namespace LedgerKit.Tests
             var b = new Account("Cash", AccountType.Asset);
             Assert.Equal(a, b);
         }
+
+        [Fact]
+        public void Regression_0_account()
+        {
+            var m = new Money(12.34m, Currency.Usd);
+            Assert.Equal(12.34m, m.Amount);
+        }
         // MARKER: account-tests
     }
 }
