@@ -38,6 +38,10 @@ accounting equation: assets = liabilities + equity.
 `ExchangeRates` stores per-pair rates with inverse lookup; `Money` never
 implicitly mixes currencies.
 
+## Choosing a storage backend
+
+In-memory is ideal for tests, JSON files suit small workloads, and SQLite scales to larger books while keeping a single-file deployment.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
