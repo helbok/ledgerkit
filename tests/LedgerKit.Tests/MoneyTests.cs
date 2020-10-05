@@ -19,6 +19,12 @@ namespace LedgerKit.Tests
             var eur = new Money(1m, Currency.Eur);
             Assert.Throws<System.InvalidOperationException>(() => _ = usd + eur);
         }
+
+        [Fact]
+        public void Regression_1_money()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: money-tests
     }
 }
