@@ -19,6 +19,12 @@ namespace LedgerKit.Tests
             Assert.Throws<UnbalancedTransactionException>(
                 () => new Transaction(DateTime.UtcNow, "unbalanced", entries));
         }
+
+        [Fact]
+        public void Regression_2_transaction()
+        {
+            Assert.Equal(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Asset));
+        }
         // MARKER: transaction-tests
     }
 }
