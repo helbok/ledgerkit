@@ -50,6 +50,11 @@ A `Period` is half-open: the start is inclusive and the end exclusive, so adjace
 
 Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates` rather than mixing units implicitly.
 
+## Async support
+
+`IAsyncLedgerStore` mirrors the synchronous contract for async callers;
+the in-memory store implements both.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
