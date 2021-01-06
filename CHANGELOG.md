@@ -54,4 +54,10 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - SQLite store now preserves account types on read.
 
+## [0.7.0] - 2021-01-06
+
+### Added
+
+- Asynchronous store contract and in-memory implementation.
+
 <!-- releases -->
