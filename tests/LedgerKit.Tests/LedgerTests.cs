@@ -23,6 +23,12 @@ namespace LedgerKit.Tests
             Assert.Equal(100m, ledger.GetBalance(cash));
             Assert.Equal(-100m, ledger.GetBalance(income));
         }
+
+        [Fact]
+        public void Regression_3_ledger()
+        {
+            Assert.NotEqual(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Liability));
+        }
         // MARKER: ledger-tests
     }
 }
