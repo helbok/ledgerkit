@@ -55,6 +55,10 @@ Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates
 `IAsyncLedgerStore` mirrors the synchronous contract for async callers;
 the in-memory store implements both.
 
+## Error handling
+
+Validation failures surface as `LedgerException` subclasses, so callers can catch `UnbalancedTransactionException` specifically.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
