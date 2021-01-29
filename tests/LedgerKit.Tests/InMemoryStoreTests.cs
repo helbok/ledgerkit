@@ -13,6 +13,12 @@ namespace LedgerKit.Tests
             Assert.Throws<LedgerException>(
                 () => store.AddAccount(new Account("Cash", AccountType.Asset)));
         }
+
+        [Fact]
+        public void Regression_4_in_memory_store()
+        {
+            Assert.Equal("USD", new Currency("usd").Code);
+        }
         // MARKER: inmemory-tests
     }
 }
