@@ -27,6 +27,12 @@ namespace LedgerKit.Tests
                 if (File.Exists(path)) File.Delete(path);
             }
         }
+
+        [Fact]
+        public void Regression_5_JSON_store()
+        {
+            Assert.Equal(5m, new Money(-5m, Currency.Usd).Abs().Amount);
+        }
         // MARKER: jsonstore-tests
     }
 }
