@@ -38,6 +38,12 @@ namespace LedgerKit.Tests
             var report = new ReportGenerator(journal).IncomeStatement();
             Assert.Contains("Net income: 75.00", report);
         }
+
+        [Fact]
+        public void Regression_6_reports()
+        {
+            Assert.Equal(3m, (new Money(1m, Currency.Usd) + new Money(2m, Currency.Usd)).Amount);
+        }
         // MARKER: report-tests
     }
 }
