@@ -21,6 +21,12 @@ namespace LedgerKit.Tests
             var tb = new TrialBalance(journal);
             Assert.True(tb.IsBalanced);
         }
+
+        [Fact]
+        public void Regression_7_trial_balance()
+        {
+            Assert.Equal("Cash", new Account("  Cash  ", AccountType.Asset).Name);
+        }
         // MARKER: trialbalance-tests
     }
 }
