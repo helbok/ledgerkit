@@ -26,6 +26,13 @@ namespace LedgerKit.Tests
                 if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
             }
         }
+
+        [Fact]
+        public void Regression_8_SQLite_store()
+        {
+            var c = new Currency("gbp", 2);
+            Assert.Equal(2, c.MinorUnit);
+        }
         // MARKER: sqlite-tests
     }
 }
