@@ -75,6 +75,10 @@ Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering s
 
 Reports are returned as plain text; wrap them with your own HTML or PDF renderer.
 
+## Migration
+
+Between minor versions, stick to the public API in the root namespace; internals may move.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
