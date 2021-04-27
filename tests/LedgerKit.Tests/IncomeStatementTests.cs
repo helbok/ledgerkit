@@ -31,6 +31,12 @@ namespace LedgerKit.Tests
             Assert.Equal(400m, stmt.TotalExpenses);
             Assert.Equal(600m, stmt.NetIncome);
         }
+
+        [Fact]
+        public void Regression_9_income_statement()
+        {
+            Assert.Equal("GBP", Currency.Gbp.Code);
+        }
         // MARKER: income-tests
     }
 }
