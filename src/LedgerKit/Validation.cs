@@ -13,9 +13,20 @@ namespace LedgerKit
         public static bool IsBalanced(System.Collections.Generic.IEnumerable<Entry> entries)
         {
             var sum = 0m;
+            var count = 0;
             foreach (var e in entries)
+            {
                 sum += e.Amount.Amount;
-            return sum == 0m;
+                count++;
+            }
+            return count >= 2 && sum == 0m;
+        }
+
+        public static void RequireBalanced(System.Collections.Generic.IEnumerable<Entry> entries, string description)
+        {
+            if (!IsBalanced(entries))
+                throw new UnbalancedTransactionException(
+                    $"Transaction '{description}' does not balance.");
         }
 
         public static void Require(bool condition, string message)
