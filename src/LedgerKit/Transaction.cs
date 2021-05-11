@@ -18,9 +18,7 @@ namespace LedgerKit
             var list = entries?.ToList() ?? throw new ArgumentNullException(nameof(entries));
             if (list.Count < 2)
                 throw new LedgerException("A transaction requires at least two entries.");
-            if (!Validation.IsBalanced(list))
-                throw new UnbalancedTransactionException(
-                    $"Transaction '{description}' does not balance.");
+            Validation.RequireBalanced(list, description);
             Posted = posted;
             Description = description.Trim();
             Entries = new ReadOnlyCollection<Entry>(list);
