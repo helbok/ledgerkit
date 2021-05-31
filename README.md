@@ -79,6 +79,11 @@ Reports are returned as plain text; wrap them with your own HTML or PDF renderer
 
 Between minor versions, stick to the public API in the root namespace; internals may move.
 
+## Validation
+
+Every `Transaction` is checked for balance at construction; `Validation`
+exposes the same checks for callers that need them ahead of time.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
