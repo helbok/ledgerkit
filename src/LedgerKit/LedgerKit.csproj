@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>LedgerKit</PackageId>
-    <Version>0.7.0</Version>
+    <Version>0.8.0</Version>
     <Authors>ErvinTse</Authors>
     <Description>A double-entry accounting library for .NET.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
