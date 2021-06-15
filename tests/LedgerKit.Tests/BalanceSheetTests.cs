@@ -21,6 +21,13 @@ namespace LedgerKit.Tests
             var sheet = new BalanceSheet(new Ledger(journal));
             Assert.True(sheet.IsBalanced);
         }
+
+        [Fact]
+        public void Regression_10_balance_sheet()
+        {
+            var m = new Money(12.34m, Currency.Usd);
+            Assert.Equal(12.34m, m.Amount);
+        }
         // MARKER: balancesheet-tests
     }
 }

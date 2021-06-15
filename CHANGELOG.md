@@ -60,4 +60,10 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Asynchronous store contract and in-memory implementation.
 
+## [0.8.0] - 2021-06-10
+
+### Changed
+
+- Balance validation centralized in `Validation.RequireBalanced`.
+
 <!-- releases -->
