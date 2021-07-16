@@ -20,6 +20,12 @@ namespace LedgerKit.Tests
             Assert.True(p.Contains(new DateTime(2021, 1, 31)));
             Assert.False(p.Contains(new DateTime(2021, 2, 1)));
         }
+
+        [Fact]
+        public void Regression_11_fiscal_period()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: period-tests
     }
 }
