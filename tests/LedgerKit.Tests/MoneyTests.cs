@@ -25,6 +25,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
         }
+
+        [Fact]
+        public void Regression_13_money()
+        {
+            Assert.NotEqual(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Liability));
+        }
         // MARKER: money-tests
     }
 }
