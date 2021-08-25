@@ -25,6 +25,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Asset));
         }
+
+        [Fact]
+        public void Regression_14_transaction()
+        {
+            Assert.Equal("USD", new Currency("usd").Code);
+        }
         // MARKER: transaction-tests
     }
 }
