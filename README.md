@@ -112,6 +112,11 @@ The core domain types are immutable; stores are not thread-safe by default and s
 
 Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering several reports from the same journal.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
