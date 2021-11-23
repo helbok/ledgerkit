@@ -9,7 +9,7 @@ namespace LedgerKit
     /// A JSON-file-backed ledger store. Data is written as a snapshot on
     /// every mutation so the file always contains a consistent state.
     /// </summary>
-    public sealed class JsonStore : ILedgerStore
+    public sealed class JsonStore : ILedgerStore, IAsyncLedgerStore
     {
         private sealed class Snapshot
         {
@@ -66,6 +66,32 @@ namespace LedgerKit
         }
 
         public void Dispose() => Save();
+
+        public async System.Threading.Tasks.Task<IReadOnlyList<Account>> GetAccountsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            return GetAccounts();
+        }
+
+        public System.Threading.Tasks.Task AddAccountAsync(Account account, System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            AddAccount(account);
+            return System.Threading.Tasks.Task.CompletedTask;
+        }
+
+        public async System.Threading.Tasks.Task<IReadOnlyList<Transaction>> GetTransactionsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            return GetTransactions();
+        }
+
+        public System.Threading.Tasks.Task AddTransactionAsync(Transaction transaction, System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            AddTransaction(transaction);
+            return System.Threading.Tasks.Task.CompletedTask;
+        }
 
         private void Load()
         {
