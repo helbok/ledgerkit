@@ -117,6 +117,10 @@ Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering s
 See [CONTRIBUTING.md](CONTRIBUTING.md) and
 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
+## Precision
+
+`Money` rounds to the currency's minor unit using banker-agnostic away-from-zero rounding.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
