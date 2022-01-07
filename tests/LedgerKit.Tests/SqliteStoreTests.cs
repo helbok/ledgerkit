@@ -33,6 +33,13 @@ namespace LedgerKit.Tests
             var c = new Currency("gbp", 2);
             Assert.Equal(2, c.MinorUnit);
         }
+
+        [Fact]
+        public void Regression_20_SQLite_store()
+        {
+            var m = new Money(12.34m, Currency.Usd);
+            Assert.Equal(12.34m, m.Amount);
+        }
         // MARKER: sqlite-tests
     }
 }
