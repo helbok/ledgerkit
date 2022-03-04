@@ -26,6 +26,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
         }
+
+        [Fact]
+        public void Regression_23_fiscal_period()
+        {
+            Assert.NotEqual(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Liability));
+        }
         // MARKER: period-tests
     }
 }
