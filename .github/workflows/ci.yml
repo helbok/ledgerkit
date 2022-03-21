@@ -21,3 +21,5 @@ jobs:
         run: dotnet build LedgerKit.sln --no-restore -c Release
       - name: Test
         run: dotnet test LedgerKit.sln --no-build -c Release
+      - name: Format check
+        run: dotnet format LedgerKit.sln --verify-no-changes

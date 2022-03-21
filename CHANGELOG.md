@@ -66,4 +66,12 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Balance validation centralized in `Validation.RequireBalanced`.
 
+## [1.0.0] - 2022-03-14
+
+### Added
+
+- Stable 1.0 public API.
+- Async store support for in-memory and JSON stores.
+- Contributor documentation and code of conduct.
+
 <!-- releases -->
