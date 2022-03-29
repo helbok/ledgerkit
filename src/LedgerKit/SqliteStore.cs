@@ -69,7 +69,7 @@ namespace LedgerKit
                     if (currentId != null)
                         list.Add(new Transaction(posted, description, entries));
                     currentId = id;
-                    posted = reader.GetDateTime(1);
+                    posted = DateTime.Parse(reader.GetString(1), System.Globalization.CultureInfo.InvariantCulture);
                     description = reader.GetString(2);
                     entries = new List<Entry>();
                 }
