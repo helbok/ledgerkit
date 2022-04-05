@@ -8,7 +8,7 @@ namespace LedgerKit
     /// A SQLite-backed ledger store. Accounts and entries are persisted in a
     /// normalized schema with a transaction log.
     /// </summary>
-    public sealed class SqliteStore : ILedgerStore
+    public sealed class SqliteStore : ILedgerStore, IAsyncLedgerStore
     {
         private readonly SqliteConnection _connection;
 
@@ -109,6 +109,32 @@ namespace LedgerKit
         }
 
         public void Dispose() => _connection.Dispose();
+
+        public System.Threading.Tasks.Task<IReadOnlyList<Account>> GetAccountsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            return System.Threading.Tasks.Task.FromResult(GetAccounts());
+        }
+
+        public System.Threading.Tasks.Task AddAccountAsync(Account account, System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            AddAccount(account);
+            return System.Threading.Tasks.Task.CompletedTask;
+        }
+
+        public System.Threading.Tasks.Task<IReadOnlyList<Transaction>> GetTransactionsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            return System.Threading.Tasks.Task.FromResult(GetTransactions());
+        }
+
+        public System.Threading.Tasks.Task AddTransactionAsync(Transaction transaction, System.Threading.CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            AddTransaction(transaction);
+            return System.Threading.Tasks.Task.CompletedTask;
+        }
 
         private void InitializeSchema()
         {
