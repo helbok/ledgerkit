@@ -141,6 +141,10 @@ In-memory is ideal for tests, JSON files suit small workloads, and SQLite scales
 
 A `Period` is half-open: the start is inclusive and the end exclusive, so adjacent periods never double-count a posting.
 
+## Multicurrency
+
+Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates` rather than mixing units implicitly.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
