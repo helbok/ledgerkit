@@ -149,6 +149,10 @@ Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates
 
 Validation failures surface as `LedgerException` subclasses, so callers can catch `UnbalancedTransactionException` specifically.
 
+## Thread safety
+
+The core domain types are immutable; stores are not thread-safe by default and should be synchronized by the caller.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
