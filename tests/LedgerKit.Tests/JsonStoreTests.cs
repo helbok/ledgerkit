@@ -39,6 +39,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("Cash", new Account("  Cash  ", AccountType.Asset).Name);
         }
+
+        [Fact]
+        public void Regression_29_JSON_store()
+        {
+            Assert.Equal("GBP", Currency.Gbp.Code);
+        }
         // MARKER: jsonstore-tests
     }
 }
