@@ -33,6 +33,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("GBP", Currency.Gbp.Code);
         }
+
+        [Fact]
+        public void Regression_31_trial_balance()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: trialbalance-tests
     }
 }
