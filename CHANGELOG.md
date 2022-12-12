@@ -74,4 +74,15 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Async store support for in-memory and JSON stores.
 - Contributor documentation and code of conduct.
 
+## [1.1.0] - 2022-12-01
+
+### Added
+
+- Store/journal reconciliation helper.
+- Async store support for SQLite.
+
+### Fixed
+
+- SQLite timestamps are now parsed as text rather than native dates.
+
 <!-- releases -->
