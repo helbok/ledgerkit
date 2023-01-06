@@ -61,6 +61,20 @@ namespace LedgerKit
             return result;
         }
 
+        public decimal GetBalance(Account account, Period period)
+        {
+            decimal sum = 0m;
+            foreach (var tx in _journal.Transactions)
+            {
+                if (!period.Contains(tx.Posted))
+                    continue;
+                foreach (var e in tx.Entries)
+                    if (e.Account.Equals(account))
+                        sum += e.Amount.Amount;
+            }
+            return sum;
+        }
+
         public LedgerSnapshot Capture() => new LedgerSnapshot(GetBalances());
 
         public IReadOnlyDictionary<Account, decimal> GetBalancesByType(AccountType type)
