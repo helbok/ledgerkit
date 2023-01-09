@@ -155,7 +155,8 @@ namespace LedgerKit
                     account_name TEXT NOT NULL,
                     amount REAL NOT NULL,
                     currency TEXT NOT NULL
-                );";
+                );
+                CREATE INDEX IF NOT EXISTS idx_entries_transaction ON entries(transaction_id);";
             cmd.ExecuteNonQuery();
         }
     }
