@@ -46,6 +46,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Asset));
         }
+
+        [Fact]
+        public void Regression_44_SQLite_store()
+        {
+            Assert.Equal("USD", new Currency("usd").Code);
+        }
         // MARKER: sqlite-tests
     }
 }
