@@ -85,4 +85,14 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - SQLite timestamps are now parsed as text rather than native dates.
 
+## [1.2.0] - 2023-08-28
+
+### Added
+
+- Period-scoped balance lookups on `Ledger`.
+
+### Changed
+
+- SQLite entries are now indexed by transaction id.
+
 <!-- releases -->
