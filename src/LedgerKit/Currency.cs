@@ -24,6 +24,7 @@ namespace LedgerKit
         public static readonly Currency Usd = new Currency("USD", 2);
         public static readonly Currency Eur = new Currency("EUR", 2);
         public static readonly Currency Gbp = new Currency("GBP", 2);
+        public static readonly Currency Jpy = new Currency("JPY", 0);
 
         public bool Equals(Currency other) => Code == other.Code && MinorUnit == other.MinorUnit;
 
