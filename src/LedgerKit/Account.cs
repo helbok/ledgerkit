@@ -12,6 +12,8 @@ namespace LedgerKit
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Account name is required.", nameof(name));
             Name = name.Trim();
+            if (Name.Length > 128)
+                throw new ArgumentException("Account name is too long.", nameof(name));
             Type = type;
         }
 
