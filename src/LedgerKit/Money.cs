@@ -71,6 +71,8 @@ namespace LedgerKit
             if (minorUnit < 0 || minorUnit >= Factors.Length)
                 throw new ArgumentOutOfRangeException(nameof(minorUnit));
             var factor = Factors[minorUnit];
+            if (amount > decimal.MaxValue / factor || amount < decimal.MinValue / factor)
+                throw new OverflowException("Amount is too large for its minor unit.");
             return decimal.Round(amount * factor, 0, MidpointRounding.AwayFromZero) / factor;
         }
     }
