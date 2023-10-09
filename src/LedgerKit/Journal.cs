@@ -15,6 +15,8 @@ namespace LedgerKit
         {
             if (transaction == null)
                 throw new ArgumentNullException(nameof(transaction));
+            if (_transactions.Contains(transaction))
+                throw new LedgerException("Transaction already recorded.");
             _transactions.Add(transaction);
         }
 
