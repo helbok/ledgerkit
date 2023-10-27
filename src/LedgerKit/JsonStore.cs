@@ -131,6 +131,9 @@ namespace LedgerKit
                     });
                 snap.Transactions.Add(dto);
             }
+            var dir = Path.GetDirectoryName(_path);
+            if (!string.IsNullOrEmpty(dir))
+                Directory.CreateDirectory(dir);
             File.WriteAllText(_path, JsonSerializer.Serialize(snap, new JsonSerializerOptions { WriteIndented = true }));
         }
     }
