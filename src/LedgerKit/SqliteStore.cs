@@ -74,7 +74,7 @@ namespace LedgerKit
                     entries = new List<Entry>();
                 }
                 var account = accountsByName[reader.GetString(3)];
-                entries.Add(new Entry(account, new Money(reader.GetDecimal(4), new Currency(reader.GetString(5)))));
+                entries.Add(new Entry(account, new Money(decimal.Parse(reader.GetString(4), System.Globalization.CultureInfo.InvariantCulture), new Currency(reader.GetString(5)))));
             }
             if (currentId != null)
                 list.Add(new Transaction(posted, description, entries));
@@ -100,7 +100,7 @@ namespace LedgerKit
                     ec.CommandText = "INSERT INTO entries (transaction_id, account_name, amount, currency) VALUES ($tid, $account, $amount, $currency);";
                     ec.Parameters.AddWithValue("$tid", id);
                     ec.Parameters.AddWithValue("$account", entry.Account.Name);
-                    ec.Parameters.AddWithValue("$amount", entry.Amount.Amount);
+                    ec.Parameters.AddWithValue("$amount", entry.Amount.Amount.ToString(System.Globalization.CultureInfo.InvariantCulture));
                     ec.Parameters.AddWithValue("$currency", entry.Amount.Currency.Code);
                     ec.ExecuteNonQuery();
                 }
@@ -153,7 +153,7 @@ namespace LedgerKit
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     transaction_id INTEGER NOT NULL,
                     account_name TEXT NOT NULL,
-                    amount REAL NOT NULL,
+                    amount TEXT NOT NULL,
                     currency TEXT NOT NULL
                 );
                 CREATE INDEX IF NOT EXISTS idx_entries_transaction ON entries(transaction_id);";
