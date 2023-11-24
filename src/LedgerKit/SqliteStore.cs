@@ -110,6 +110,15 @@ namespace LedgerKit
 
         public void Dispose() => _connection.Dispose();
 
+        public IReadOnlyList<Transaction> GetTransactions(int limit, int offset)
+        {
+            var all = GetTransactions();
+            var result = new List<Transaction>();
+            for (var i = offset; i < all.Count && result.Count < limit; i++)
+                result.Add(all[i]);
+            return result;
+        }
+
         public System.Threading.Tasks.Task<IReadOnlyList<Account>> GetAccountsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
