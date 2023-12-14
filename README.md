@@ -233,6 +233,10 @@ Validation failures surface as `LedgerException` subclasses, so callers can catc
 
 The core domain types are immutable; stores are not thread-safe by default and should be synchronized by the caller.
 
+## Requirements
+
+LedgerKit 2.x targets .NET 6 or later.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
