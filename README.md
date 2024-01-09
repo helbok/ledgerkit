@@ -237,6 +237,10 @@ The core domain types are immutable; stores are not thread-safe by default and s
 
 LedgerKit 2.x targets .NET 6 or later.
 
+## Performance
+
+Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering several reports from the same journal.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
