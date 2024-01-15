@@ -241,6 +241,10 @@ LedgerKit 2.x targets .NET 6 or later.
 
 Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering several reports from the same journal.
 
+## Precision
+
+`Money` rounds to the currency's minor unit using banker-agnostic away-from-zero rounding.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
