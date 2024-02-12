@@ -47,6 +47,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("GBP", Currency.Gbp.Code);
         }
+
+        [Fact]
+        public void Regression_51_ledger()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: ledger-tests
     }
 }
