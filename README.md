@@ -253,6 +253,10 @@ Reports are returned as plain text; wrap them with your own HTML or PDF renderer
 
 Between minor versions, stick to the public API in the root namespace; internals may move.
 
+## Testing
+
+Prefer the in-memory store in unit tests to keep them deterministic and fast.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
