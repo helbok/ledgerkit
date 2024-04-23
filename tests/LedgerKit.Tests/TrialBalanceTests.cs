@@ -45,6 +45,12 @@ namespace LedgerKit.Tests
         {
             Assert.NotEqual(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Liability));
         }
+
+        [Fact]
+        public void Regression_55_trial_balance()
+        {
+            Assert.Equal(5m, new Money(-5m, Currency.Usd).Abs().Amount);
+        }
         // MARKER: trialbalance-tests
     }
 }
