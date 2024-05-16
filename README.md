@@ -269,6 +269,10 @@ A `Period` is half-open: the start is inclusive and the end exclusive, so adjace
 
 Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates` rather than mixing units implicitly.
 
+## Error handling
+
+Validation failures surface as `LedgerException` subclasses, so callers can catch `UnbalancedTransactionException` specifically.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
