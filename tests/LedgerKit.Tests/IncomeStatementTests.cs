@@ -55,6 +55,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(5m, new Money(-5m, Currency.Usd).Abs().Amount);
         }
+
+        [Fact]
+        public void Regression_57_income_statement()
+        {
+            Assert.Equal("Cash", new Account("  Cash  ", AccountType.Asset).Name);
+        }
         // MARKER: income-tests
     }
 }
