@@ -95,4 +95,15 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - SQLite entries are now indexed by transaction id.
 
+## [2.0.0] - 2024-07-16
+
+### Added
+
+- Paginated SQLite transaction reads.
+
+### Changed
+
+- Now targets .NET 6 or later (breaking).
+- SQLite amounts stored as text to preserve precision.
+
 <!-- releases -->
