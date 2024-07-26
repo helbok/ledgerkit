@@ -40,7 +40,14 @@ namespace LedgerKit
             cmd.CommandText = "INSERT INTO accounts (name, type) VALUES ($name, $type);";
             cmd.Parameters.AddWithValue("$name", account.Name);
             cmd.Parameters.AddWithValue("$type", account.Type.ToString());
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Microsoft.Data.Sqlite.SqliteException ex)
+            {
+                throw new LedgerException($"Account '{account.Name}' already exists.", ex);
+            }
         }
 
         public IReadOnlyList<Transaction> GetTransactions()
