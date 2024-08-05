@@ -15,6 +15,8 @@ namespace LedgerKit
         {
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("Description is required.", nameof(description));
+            if (description.Trim().Length > 512)
+                throw new ArgumentException("Description is too long.", nameof(description));
             var list = entries?.ToList() ?? throw new ArgumentNullException(nameof(entries));
             if (list.Count < 2)
                 throw new LedgerException("A transaction requires at least two entries.");
