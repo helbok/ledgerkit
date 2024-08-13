@@ -25,7 +25,7 @@ namespace LedgerKit
             var balances = ledger.GetBalances();
             foreach (var kv in balances)
                 sb.AppendLine($"{kv.Key.Name} | {kv.Value:0.00}");
-            sb.AppendLine("Total | " + balances.Values.Sum().ToString("0.00"));
+            sb.AppendLine("Total | " + balances.Values.Sum().ToString("0.00", System.Globalization.CultureInfo.InvariantCulture));
             return sb.ToString();
         }
 
