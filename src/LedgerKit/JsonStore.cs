@@ -37,6 +37,8 @@ namespace LedgerKit
             public string Currency { get; set; } = "USD";
         }
 
+        private static readonly JsonSerializerOptions Options = new JsonSerializerOptions { WriteIndented = true };
+
         private readonly string _path;
         private readonly List<Account> _accounts = new List<Account>();
         private readonly List<Transaction> _transactions = new List<Transaction>();
@@ -134,7 +136,7 @@ namespace LedgerKit
             var dir = Path.GetDirectoryName(_path);
             if (!string.IsNullOrEmpty(dir))
                 Directory.CreateDirectory(dir);
-            File.WriteAllText(_path, JsonSerializer.Serialize(snap, new JsonSerializerOptions { WriteIndented = true }));
+            File.WriteAllText(_path, JsonSerializer.Serialize(snap, Options));
         }
     }
 }
