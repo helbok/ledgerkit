@@ -23,10 +23,14 @@ namespace LedgerKit
             if (journal == null) throw new ArgumentNullException(nameof(journal));
             if (store == null) throw new ArgumentNullException(nameof(store));
             var result = new Result();
-            var journalKeys = new HashSet<DateTime>(journal.Transactions.Select(t => t.Posted));
-            var storeKeys = new HashSet<DateTime>(store.GetTransactions().Select(t => t.Posted));
-            result.MissingFromStore = journalKeys.Count(k => !storeKeys.Contains(k));
-            result.MissingFromJournal = storeKeys.Count(k => !journalKeys.Contains(k));
+            var journalList = journal.Transactions.Select(t => t.Posted).ToList();
+            var storeList = store.GetTransactions().Select(t => t.Posted).ToList();
+            foreach (var posted in journalList)
+            {
+                if (!storeList.Remove(posted))
+                    result.MissingFromStore++;
+            }
+            result.MissingFromJournal = storeList.Count;
             return result;
         }
     }
