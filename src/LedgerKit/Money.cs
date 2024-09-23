@@ -23,6 +23,21 @@ namespace LedgerKit
 
         public Money Abs() => new Money(Math.Abs(Amount), Currency);
 
+        public static bool TryParse(string text, out Money money)
+        {
+            money = default;
+            if (string.IsNullOrWhiteSpace(text))
+                return false;
+            var parts = text.Split(' ');
+            if (parts.Length != 2)
+                return false;
+            if (!decimal.TryParse(parts[0], System.Globalization.NumberStyles.Number,
+                    System.Globalization.CultureInfo.InvariantCulture, out var amount))
+                return false;
+            money = new Money(amount, new Currency(parts[1]));
+            return true;
+        }
+
         public static Money operator +(Money a, Money b) => Combine(a, b, a.Amount + b.Amount);
 
         public static Money operator -(Money a, Money b) => Combine(a, b, a.Amount - b.Amount);
