@@ -49,6 +49,20 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("GBP", Currency.Gbp.Code);
         }
+
+        [Fact]
+        public void TryParse_Accepts_Amount_And_Code()
+        {
+            Assert.True(Money.TryParse("12.34 USD", out var m));
+            Assert.Equal(12.34m, m.Amount);
+            Assert.Equal(Currency.Usd, m.Currency);
+        }
+
+        [Fact]
+        public void TryParse_Rejects_Malformed_Input()
+        {
+            Assert.False(Money.TryParse("not-money", out _));
+        }
         // MARKER: money-tests
     }
 }
