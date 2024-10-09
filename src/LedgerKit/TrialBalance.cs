@@ -35,7 +35,7 @@ namespace LedgerKit
 
         private static List<Row> Build(Journal journal)
         {
-            var rows = new List<Row>();
+            var rows = new List<Row>(journal.Count);
             var ledger = new Ledger(journal);
             foreach (var kv in ledger.GetBalances())
             {
