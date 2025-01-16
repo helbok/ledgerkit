@@ -285,6 +285,10 @@ Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering s
 
 `Money` rounds to the currency's minor unit using banker-agnostic away-from-zero rounding.
 
+## Report formats
+
+Reports are returned as plain text; wrap them with your own HTML or PDF renderer.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
