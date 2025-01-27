@@ -63,6 +63,12 @@ namespace LedgerKit.Tests
         {
             Assert.False(Money.TryParse("not-money", out _));
         }
+
+        [Fact]
+        public void Regression_61_money()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: money-tests
     }
 }
