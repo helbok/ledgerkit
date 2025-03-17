@@ -45,6 +45,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Asset));
         }
+
+        [Fact]
+        public void Regression_64_in_memory_store()
+        {
+            Assert.Equal("USD", new Currency("usd").Code);
+        }
         // MARKER: inmemory-tests
     }
 }
