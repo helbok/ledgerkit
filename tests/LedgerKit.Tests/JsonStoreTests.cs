@@ -57,6 +57,12 @@ namespace LedgerKit.Tests
         {
             Assert.NotEqual(new Account("Cash", AccountType.Asset), new Account("Cash", AccountType.Liability));
         }
+
+        [Fact]
+        public void Regression_65_JSON_store()
+        {
+            Assert.Equal(5m, new Money(-5m, Currency.Usd).Abs().Amount);
+        }
         // MARKER: jsonstore-tests
     }
 }
