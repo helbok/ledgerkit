@@ -106,4 +106,14 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Now targets .NET 6 or later (breaking).
 - SQLite amounts stored as text to preserve precision.
 
+## [2.1.0] - 2025-05-08
+
+### Added
+
+- `Money.TryParse` for parsing amounts.
+
+### Changed
+
+- Now targets .NET 8 or later (breaking).
+
 <!-- releases -->
