@@ -313,6 +313,40 @@ Amounts are always bound to a `Currency`; convert explicitly with `ExchangeRates
 
 Validation failures surface as `LedgerException` subclasses, so callers can catch `UnbalancedTransactionException` specifically.
 
+## Architecture
+
+- **Domain model** — `Account`, `AccountType`, `Currency`, `Money`, `Entry`,
+  `Transaction`: small immutable types that enforce balance invariants.
+- **Computation** — `Journal`, `Ledger`, `LedgerSnapshot`, `TrialBalance`,
+  `Period`: query and summarise postings.
+- **Persistence** — `ILedgerStore` / `IAsyncLedgerStore` with `InMemoryStore`,
+  `JsonStore` and `SqliteStore` implementations.
+- **Reporting** — `ReportGenerator`, `IncomeStatement`, `BalanceSheet`,
+  `CashFlow`.
+
+## Usage
+
+```csharp
+var cash = new Account("Cash", AccountType.Asset);
+var income = new Account("Income", AccountType.Revenue);
+var journal = new Journal();
+journal.Add(new Transaction(DateTime.UtcNow, "sale",
+    new[]
+    {
+        new Entry(cash, new Money(120.00m, Currency.Usd)),
+        new Entry(income, new Money(-120.00m, Currency.Usd)),
+    }));
+var balance = new Ledger(journal).GetBalance(cash);
+```
+
+## Installation
+
+Reference the `LedgerKit` project or add the package:
+
+```sh
+dotnet add package LedgerKit
+```
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
