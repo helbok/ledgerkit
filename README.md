@@ -10,7 +10,7 @@ Early development. The API is unstable and may change without notice.
 
 ## Requirements
 
-- .NET Core 3.1 or later
+- .NET 9 or later
 
 ## License
 
