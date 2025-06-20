@@ -235,7 +235,7 @@ The core domain types are immutable; stores are not thread-safe by default and s
 
 ## Requirements
 
-LedgerKit 2.x targets .NET 6 or later.
+LedgerKit 2.x targets .NET 9 or later.
 
 ## Performance
 
