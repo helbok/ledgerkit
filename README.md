@@ -347,6 +347,10 @@ Reference the `LedgerKit` project or add the package:
 dotnet add package LedgerKit
 ```
 
+## Thread safety
+
+The core domain types are immutable; stores are not thread-safe by default and should be synchronized by the caller.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
