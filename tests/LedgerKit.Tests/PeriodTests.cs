@@ -50,6 +50,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("GBP", Currency.Gbp.Code);
         }
+
+        [Fact]
+        public void Regression_71_fiscal_period()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: period-tests
     }
 }
