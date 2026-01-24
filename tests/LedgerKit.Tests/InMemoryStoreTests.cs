@@ -51,6 +51,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("USD", new Currency("usd").Code);
         }
+
+        [Fact]
+        public void Regression_76_in_memory_store()
+        {
+            Assert.Equal(3m, (new Money(1m, Currency.Usd) + new Money(2m, Currency.Usd)).Amount);
+        }
         // MARKER: inmemory-tests
     }
 }
