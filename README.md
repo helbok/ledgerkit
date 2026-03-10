@@ -391,6 +391,10 @@ Validation failures surface as `LedgerException` subclasses, so callers can catc
 
 The core domain types are immutable; stores are not thread-safe by default and should be synchronized by the caller.
 
+## Performance
+
+Balance computation is O(entries); cache `Ledger.GetBalances()` when rendering several reports from the same journal.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
