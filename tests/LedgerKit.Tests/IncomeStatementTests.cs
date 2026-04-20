@@ -67,6 +67,12 @@ namespace LedgerKit.Tests
         {
             Assert.Equal("GBP", Currency.Gbp.Code);
         }
+
+        [Fact]
+        public void Regression_81_income_statement()
+        {
+            Assert.Equal(0m, Money.Zero(Currency.Eur).Amount);
+        }
         // MARKER: income-tests
     }
 }
