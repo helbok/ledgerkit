@@ -415,6 +415,10 @@ Prefer the in-memory store in unit tests to keep them deterministic and fast.
 
 In-memory is ideal for tests, JSON files suit small workloads, and SQLite scales to larger books while keeping a single-file deployment.
 
+## Working with fiscal periods
+
+A `Period` is half-open: the start is inclusive and the end exclusive, so adjacent periods never double-count a posting.
+
 ## About this project
 
 This repository is a **synthetic educational example**: the project and its
