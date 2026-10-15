@@ -116,4 +116,11 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Now targets .NET 8 or later (breaking).
 
+## [2.2.0] - 2026-10-07
+
+### Changed
+
+- Now targets .NET 9 or later (breaking).
+- Expanded architecture, usage and installation documentation.
+
 <!-- releases -->
